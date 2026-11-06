@@ -1,78 +1,108 @@
-# Fixture product-reel assets
+# Product reel
 
-`fixture-reel.gif` is a **silent product reel**, not a live screen recording. It
-uses the real scripted-CAD renders and the measured benchmark/gate numbers. A
-live walkthrough is planned and would be recorded separately.
+![Fixture product reel](fixture-reel.gif)
 
-| file | what | size |
+*Eight cards, roughly 20 seconds, looping. Built from scripted-CAD renders and
+measured numbers — no mock UI, no composited screenshots.*
+
+Fixture is a local-first harness that lets an LLM drive **FreeCAD** and
+**Blender** through named tools instead of generated code. The reel walks the
+contract that follows from that decision.
+
+## What the reel shows
+
+| # | Card | The point |
 |---|---|---|
-| `fixture-reel.gif` | 8 cards, 850×478, ~20 s | ~308 KB |
-| `docs/social-preview.png` | 1280×640 GitHub social card | ~91 KB |
+| 1 | The loop | The model proposes, the harness verifies, FreeCAD or Blender executes, STEP/STL comes out. |
+| 2 | No arbitrary code | Every mutation is a named tool with a JSON schema, a permission tier, and an undo transaction. `python` actions are stripped and never execute. |
+| 3 | Plan, then apply | The full plan is visible before anything runs: apply or cancel, one undo per apply, one repair pass if the plan is wrong. |
+| 4 | Under-desk shelf | A real part: two mirror halves, half-lap joint, cable ports, magnet pockets, exported to STEP/STL with a print spec. |
+| 5 | Laptop cradle | A second real part: four printed pieces, measured slide-in height, 30 mm rear ledge. |
+| 6 | The limits | No arbitrary code, no cloud by default, no unmeasured claims. KiCad is a proposal, not shipped code. |
+| 7 | Measured | Four-model head-to-head against `freecad-ai`: **97.9% vs 66.3%** average case pass (ranges 96.7–98.3% vs 57.6–74.6%), and the current verification gate. |
+| 8 | The project | Local-first, tool-constrained, measured. |
 
-`docs/social-preview.png` is the GitHub social preview. Upload it in the
-repository settings after the repo is public; GitHub does not use a repo file
-automatically.
+## Why it is generated
+
+The reel is produced by [`make_reel.py`](make_reel.py) rather than recorded. That
+keeps three properties that a screen capture would not:
+
+- **It cannot drift from the evidence.** The gate figures come from
+  `GATE_ID` / `GATE_METRICS`; the benchmark figures match the table in the
+  repository `README.md`.
+- **It leaks nothing.** No private design assets, no local paths, no keyboard
+  render, no machine identifiers.
+- **It is reproducible.** Images and fonts are the only inputs; Pillow is the
+  only dependency.
+
+The renders are the exported assemblies from `designs/desk-mounts/`, read
+straight from disk. Nothing in the reel is a mock-up: the parts exist, the
+numbers have run ids, and the cards that state a limitation say so plainly.
+
+A live walkthrough is planned and will be recorded separately; the shot list
+lives in [`docs/demos.md`](../demos.md).
+
+## Figures used
+
+| Figure | Value | Maintained in |
+|---|---|---|
+| Verification gate | pytest 140 · FreeCAD 92/0 · Blender 29/0 | `GATE_ID`, `PYTEST_COUNT`, `FREECAD_SMOKES`, `BLENDER_SMOKES` |
+| Head-to-head, 4-model average | 97.9% vs 66.3% | `build_social_preview()`, benchmark table in `README.md` |
+| Head-to-head, per-model range | 96.7–98.3% vs 57.6–74.6% | `card_bench()` |
+| Local vs cloud lane | Local 4B model 97.2% · cloud 99.8% | `build_social_preview()`, planner-floor ladder in `README.md` |
+
+Update these constants after re-running `python harness/scripts/verify_fast.py`,
+in the same change as the README status line. A pending number is never a
+claimed number.
+
+## Social preview
+
+[`docs/social-preview.png`](../social-preview.png) is the 1280×640 GitHub social
+card — the image shown in link previews and on the repository's social slot. It
+carries the same palette and the same two proof numbers as the reel.
+
+GitHub does not read it from the repository: upload it under **Settings →
+General → Social preview** after the repository is public, replacing any older
+image.
 
 ## Regenerate
 
 ```powershell
+# Reel (GIF)
 python docs/reel/make_reel.py
+
+# Social card (PNG)
 python docs/reel/make_reel.py --social-preview
 ```
 
-The first command rebuilds the GIF. The second rebuilds only
-`docs/social-preview.png`. Both use Pillow, the same palette, fonts, and gate
-metrics; no ffmpeg is required. Fonts come from common Windows, macOS, or Linux
-locations, with a Pillow default fallback. The desk renders are read from
-`designs/desk-mounts/`. No private design assets are read, and the committed reel
-contains no keyboard render. The committed GIF was generated on Windows;
-regenerating on another OS changes font metrics and Pillow output, so treat the
-bytes as illustrative rather than bit-identical.
+Requires Python 3.11+ and Pillow. No ffmpeg. Fonts are discovered from standard
+Windows, macOS, and Linux locations with a Pillow fallback, so glyph metrics —
+and therefore exact bytes — vary between machines; regenerate on the platform you
+are publishing from when byte stability matters.
 
-The "Measured" card uses the `GATE_ID` and `GATE_METRICS` constants in
-`make_reel.py`; the social card uses `GATE_METRICS`. Update them with
-`README.md` and `docs/SAFETY-2026-11-02.md` after re-running
-`python harness/scripts/verify_fast.py`. The benchmark line (60 cases, 501
-checks, H2H average) must match the table in `README.md`.
+Output is checked in, so a fresh clone shows the reel without running anything.
+Do not hand-edit `fixture-reel.gif` or `social-preview.png`; the next generator
+run overwrites both. Background is `#0d1117`.
 
-## Editing the social card
-
-The card text is drawn in `build_social_preview()` in `make_reel.py`. Each
-`d.text(...)` or `_text_block(...)` call is one element:
-
-| element | where / search for |
-|---|---|
-| brand + apps | `"FIXTURE"`, `"· FreeCAD · Blender · KiCad (planned)"` |
-| gate status | `status = f"PASS · {GATE_METRICS}"` |
-| headline | `"CAD that asks"` |
-| safety line | `"Text in -> Named tools...` |
-| checks / H2H | `"60 cases · 501 checks"`, `"H2H · Fixture"` |
-| local metric | `"Local 4B"` |
-| panel caption / footer | `"under-desk shelf"`, `"github.com/kcpatt27/fixture-cad"` |
-
-To change text, edit the string. To remove a section, delete or comment the
-`d.text` / `_text_block` call and move the following `y` values up to close the
-gap. To resize, change the `_font(..., size)` value. Rebuild:
+### Checks after regenerating
 
 ```powershell
-python docs/reel/make_reel.py --social-preview
+python -c "from PIL import Image; print(Image.open('docs/reel/fixture-reel.gif').size)"
+# (850, 478)
+
+python -c "from PIL import Image; print(Image.open('docs/social-preview.png').size)"
+# (1280, 640)
 ```
 
-Direct PNG edits work too, but the next generator run overwrites them; use
-`#0d1117` for the background color.
+Then confirm the GIF still animates (8 frames, 2.5 s each, infinite loop) and
+that the card is legible at thumbnail size: headline, both proof numbers, and the
+repository URL.
 
-## What it shows
+### Editing the cards
 
-1. The loop: model proposes, harness verifies, FreeCAD/Blender execute.
-2. No arbitrary code: named tools, schema, permission tier, undo.
-3. Plan before apply: confirm, one undo, a repair pass.
-4. Under-desk shelf render.
-5. Laptop cradle render.
-6. What it is not: no arbitrary code, no cloud by default, no fake numbers,
-   KiCad next — a proposal, not shipped code.
-7. 60 cases / 501 checks, 4-model head-to-head average, and the gate result.
-8. Repo URL.
-
-The gate numbers are the ones in `README.md` and `docs/SAFETY-2026-11-02.md`;
-the benchmark numbers match `README.md`. The reel does not invent a UI or a
-result.
+Card text lives in one function per card in `make_reel.py` (`card_title()`,
+`card_no_code()`, `card_apply()`, `card_render()`, `card_not()`, `card_bench()`,
+`card_end()`), with the social card in `build_social_preview()`. Each
+`d.text(...)` or `_text_block(...)` call is one element: edit the string to
+change it, resize with the nearby `_font(..., size)` value, and close the gap in
+the following `y` values when a section is removed.
