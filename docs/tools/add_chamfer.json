@@ -1,0 +1,19 @@
+{
+  "name": "add_chamfer",
+  "description": "Add a chamfer of given size (mm) to selected edges or a selected solid's applicable edges. Optional object_name targets a document object; otherwise uses the first selection.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["size"],
+    "properties": {
+      "size": { "type": "number", "exclusiveMinimum": 0 },
+      "object_name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Target object name; defaults to first selection."
+      }
+    }
+  }
+}

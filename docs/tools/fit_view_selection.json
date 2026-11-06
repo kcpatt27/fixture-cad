@@ -1,0 +1,17 @@
+{
+  "name": "fit_view_selection",
+  "description": "Center and zoom the 3D view on the current selection (or whole document if empty).",
+  "permission": "auto",
+  "apps": ["freecad", "blender"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "margin": {
+        "type": "number",
+        "minimum": 0,
+        "description": "Optional framing margin factor."
+      }
+    }
+  }
+}

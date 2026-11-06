@@ -1,0 +1,23 @@
+{
+  "id": "fc-cyl-named",
+  "app": "freecad",
+  "tags": ["n3", "tools", "create", "confirm"],
+  "message": "Make a cylinder named Pin with radius 3 mm and height 16 mm",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_cylinder"],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_cylinder", "arg": "radius", "op": "eq", "value": 3 },
+      { "tool": "create_parametric_cylinder", "arg": "height", "op": "eq", "value": 16 },
+      { "tool": "create_parametric_cylinder", "arg": "name", "op": "eq", "value": "Pin" }
+    ]
+  }
+}

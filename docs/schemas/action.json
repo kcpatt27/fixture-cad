@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fixture.local/schemas/action.json",
+  "title": "FixtureAction",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "tool_name", "args"],
+      "properties": {
+        "type": { "const": "tool_call" },
+        "tool_name": { "type": "string", "minLength": 1 },
+        "args": { "type": "object" }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "kind", "text"],
+      "properties": {
+        "type": { "const": "meta" },
+        "kind": {
+          "type": "string",
+          "enum": ["ui_message", "status", "progress", "need_confirm"]
+        },
+        "text": { "type": "string" }
+      }
+    }
+  ]
+}

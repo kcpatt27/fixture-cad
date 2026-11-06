@@ -1,0 +1,46 @@
+{
+  "id": "fc-post-apply-summary",
+  "app": "freecad",
+  "tags": ["n2", "verify", "summary"],
+  "message": "Using the inspection facts in context.extra.inspection, summarize what was actually created, note any mismatch vs prior supported_scope remainder, and offer one bounded next step. Do not invent geometry that contradicts the facts.",
+  "mode": "explain",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [
+      {
+        "name": "Pad",
+        "type": "PartDesign::Pad",
+        "shape": "Solid",
+        "properties": {"Length": 10}
+      }
+    ],
+    "extra": {
+      "inspection": {
+        "tips": ["Pad"],
+        "detail": "Pad | PartDesign::Pad | Pad\nplacement=(0.000, 0.000, 0.000)\n  volume=8000.000\n  bbox=(40.000, 20.000, 10.000)\n  Length=10.0",
+        "object_list": "BracketBody | PartDesign::Body | BracketBody\nPad | PartDesign::Pad | Pad"
+      },
+      "prior_supported_scope": {
+        "summary": "Create a 40x20x10 mm padded rectangle",
+        "remainder": "Hinge barrels and pin remain unsupported"
+      }
+    }
+  },
+  "expect": {
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_body",
+      "new_sketch",
+      "sketch_rectangle",
+      "pad_sketch",
+      "pocket_sketch",
+      "add_fillet",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": [],
+    "required_reply_substr": ["pad", "10"],
+    "intent_status": ["supported", "partial", "ambiguous"]
+  }
+}

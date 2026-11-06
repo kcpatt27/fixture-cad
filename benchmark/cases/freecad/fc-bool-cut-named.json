@@ -1,0 +1,27 @@
+{
+  "id": "fc-bool-cut-named",
+  "app": "freecad",
+  "tags": ["n3", "tools", "create", "confirm", "multi"],
+  "message": "Create a 40x40x20mm box named Base and a cylinder named Cutter with radius 8mm and height 30mm, then boolean cut Base minus Cutter and name the result CutBase",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box", "create_parametric_cylinder", "boolean_cut"],
+    "forbidden_tools": ["clean_mesh", "boolean_fuse"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "Base" },
+      { "tool": "create_parametric_cylinder", "arg": "name", "op": "eq", "value": "Cutter" },
+      { "tool": "create_parametric_cylinder", "arg": "radius", "op": "eq", "value": 8 },
+      { "tool": "create_parametric_cylinder", "arg": "height", "op": "eq", "value": 30 },
+      { "tool": "boolean_cut", "arg": "base_name", "op": "eq", "value": "Base" },
+      { "tool": "boolean_cut", "arg": "tool_name", "op": "eq", "value": "Cutter" },
+      { "tool": "boolean_cut", "arg": "name", "op": "eq", "value": "CutBase" }
+    ]
+  }
+}

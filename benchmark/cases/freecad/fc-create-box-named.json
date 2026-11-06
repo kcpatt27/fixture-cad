@@ -1,0 +1,24 @@
+{
+  "id": "fc-create-box-named",
+  "app": "freecad",
+  "tags": ["tools", "create", "confirm"],
+  "message": "Make a box named Enclosure that is 80 mm wide, 50 mm tall, and 20 mm deep",
+  "mode": "chat",
+  "context": {
+    "active_document": "Part",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box"],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 80 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 50 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 20 },
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "Enclosure" }
+    ]
+  }
+}

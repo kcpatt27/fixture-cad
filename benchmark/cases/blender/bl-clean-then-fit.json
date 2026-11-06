@@ -1,0 +1,28 @@
+{
+  "id": "bl-clean-then-fit",
+  "app": "blender",
+  "tags": ["tools", "edit", "view", "confirm", "multi", "args", "hard"],
+  "message": "Clean the selected mesh merging vertices within 0.0005, then fit the view to the selection",
+  "mode": "chat",
+  "context": {
+    "active_document": "prop.blend",
+    "workbench_or_mode": "EDIT_MESH",
+    "selected_objects": [
+      {
+        "name": "Prop",
+        "type": "MESH",
+        "shape": "Mesh",
+        "properties": { "vertices": 4200, "polygons": 3800 }
+      }
+    ],
+    "extra": { "active_object": "Prop" }
+  },
+  "expect": {
+    "required_tools": ["clean_mesh", "fit_view_selection"],
+    "forbidden_tools": ["create_parametric_box", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "clean_mesh", "arg": "merge_distance", "op": "eq", "value": 0.0005 }
+    ]
+  }
+}

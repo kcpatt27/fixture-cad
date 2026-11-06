@@ -1,0 +1,34 @@
+{
+  "id": "fc-pad-then-pocket",
+  "app": "freecad",
+  "tags": ["tools", "create", "confirm", "multi", "partdesign-pocket"],
+  "message": "Create a PartDesign Body named BracketBody. On its XY plane create a Sketch named Profile with a 40mm by 20mm rectangle starting at x=0, y=0, then Pad that sketch 10mm and name the feature BracketPad. On the same Body XY plane create a second Sketch named CutProfile with a 20mm by 10mm rectangle starting at x=10, y=5. Pocket CutProfile 5mm in the reversed direction and name the feature BracketPocket.",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": [
+      "create_body",
+      "new_sketch",
+      "sketch_rectangle",
+      "pad_sketch",
+      "pocket_sketch"
+    ],
+    "forbidden_tools": ["create_parametric_box", "add_fillet", "clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_body", "arg": "name", "op": "eq", "value": "BracketBody" },
+      { "tool": "pad_sketch", "arg": "sketch_name", "op": "eq", "value": "Profile" },
+      { "tool": "pad_sketch", "arg": "length", "op": "eq", "value": 10 },
+      { "tool": "pad_sketch", "arg": "name", "op": "eq", "value": "BracketPad" },
+      { "tool": "pocket_sketch", "arg": "sketch_name", "op": "eq", "value": "CutProfile" },
+      { "tool": "pocket_sketch", "arg": "length", "op": "eq", "value": 5 },
+      { "tool": "pocket_sketch", "arg": "reversed", "op": "eq", "value": true },
+      { "tool": "pocket_sketch", "arg": "name", "op": "eq", "value": "BracketPocket" }
+    ]
+  }
+}

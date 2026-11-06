@@ -1,0 +1,17 @@
+# Ignore
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.env
+*.log
+.DS_Store
+benchmark/results/
+artifacts/
+clients/freecad_workbench/_smoke*_last.txt
+harness/src/fixture_cad/data/

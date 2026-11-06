@@ -1,0 +1,27 @@
+{
+  "id": "fc-ideation-partial-enclosure",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "intent", "partial", "confirm"],
+  "message": "Start a printable enclosure about 100x60x25 mm, lid later",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["partial"],
+    "require_any_tool": true,
+    "required_tools": ["create_parametric_box"],
+    "forbidden_tools": ["clean_mesh", "boolean_cut", "boolean_fuse"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 100 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 60 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 25 }
+    ],
+    "required_reply_substr": ["lid"],
+    "required_scope_substr": ["lid"]
+  }
+}

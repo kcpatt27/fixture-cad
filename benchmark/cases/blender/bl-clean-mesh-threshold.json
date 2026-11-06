@@ -1,0 +1,28 @@
+{
+  "id": "bl-clean-mesh-threshold",
+  "app": "blender",
+  "tags": ["tools", "edit", "confirm", "args"],
+  "message": "Merge vertices closer than 0.001 units on the selected mesh",
+  "mode": "chat",
+  "context": {
+    "active_document": "scene.blend",
+    "workbench_or_mode": "EDIT_MESH",
+    "selected_objects": [
+      {
+        "name": "Terrain",
+        "type": "MESH",
+        "shape": "Mesh",
+        "properties": { "vertices": 12000, "polygons": 8000 }
+      }
+    ],
+    "extra": { "active_object": "Terrain" }
+  },
+  "expect": {
+    "required_tools": ["clean_mesh"],
+    "forbidden_tools": ["create_parametric_box"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "clean_mesh", "arg": "merge_distance", "op": "eq", "value": 0.001 }
+    ]
+  }
+}

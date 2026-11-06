@@ -1,0 +1,27 @@
+{
+  "reply_text": "I'll create a 40×40×10 mm parametric box.",
+  "actions": [
+    {
+      "type": "meta",
+      "kind": "need_confirm",
+      "text": "Create box 40×40×10 mm?"
+    },
+    {
+      "type": "tool_call",
+      "tool_name": "create_parametric_box",
+      "args": {
+        "width": 40,
+        "height": 40,
+        "depth": 10,
+        "name": "Box"
+      }
+    }
+  ],
+  "intent_status": "supported",
+  "supported_scope": {
+    "summary": "Create one 40×40×10 mm parametric box."
+  },
+  "model_lane": "accurate",
+  "model": "qwen2.5:14b-instruct-q4_K_M",
+  "request_id": "fixture-001"
+}

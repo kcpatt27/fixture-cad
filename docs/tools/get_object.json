@@ -1,0 +1,18 @@
+{
+  "name": "get_object",
+  "description": "Read-only facts for one FreeCAD object by name: type, label, placement, volume/bbox when Shape exists, Body children, Pad/Pocket length, Sketch geometry count. Use when the user asks what an object is or after Apply verification. Does not mutate.",
+  "permission": "auto",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["object_name"],
+    "properties": {
+      "object_name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Exact FreeCAD object Name (not Label)."
+      }
+    }
+  }
+}

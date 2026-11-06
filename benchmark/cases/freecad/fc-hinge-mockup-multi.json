@@ -1,0 +1,31 @@
+{
+  "id": "fc-hinge-mockup-multi",
+  "app": "freecad",
+  "tags": ["n3", "tools", "create", "confirm", "multi"],
+  "message": "Build a simple hinge-like mockup with no joints or assembly constraints: create a 40x20x4mm box named LeafA, a 40x20x4mm box named LeafB moved to z=8, and a cylinder named Pin with radius 3mm and height 16mm moved to x=18, y=8, z=0. Stop after the three separate solids are placed; do not fuse them or add assembly constraints.",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": [
+      "create_parametric_box",
+      "create_parametric_cylinder",
+      "transform_placement"
+    ],
+    "forbidden_tools": ["clean_mesh", "boolean_fuse", "boolean_cut"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "LeafA" },
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 40 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 20 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 4 },
+      { "tool": "create_parametric_cylinder", "arg": "name", "op": "eq", "value": "Pin" },
+      { "tool": "create_parametric_cylinder", "arg": "radius", "op": "eq", "value": 3 },
+      { "tool": "create_parametric_cylinder", "arg": "height", "op": "eq", "value": 16 }
+    ]
+  }
+}

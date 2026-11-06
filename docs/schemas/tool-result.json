@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fixture.local/schemas/tool-result.json",
+  "title": "FixtureToolResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["app", "version", "tool_name", "success", "attempt"],
+  "properties": {
+    "app": { "type": "string", "enum": ["freecad", "blender"] },
+    "version": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string" },
+    "tool_name": { "type": "string", "minLength": 1 },
+    "success": { "type": "boolean" },
+    "model_lane": {
+      "type": "string",
+      "enum": ["accurate", "fast"],
+      "default": "accurate"
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "detail": { "type": "string" }
+      }
+    },
+    "context": { "type": "object" },
+    "attempt": { "type": "integer", "minimum": 1 }
+  }
+}

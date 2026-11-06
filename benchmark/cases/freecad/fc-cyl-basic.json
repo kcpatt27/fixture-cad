@@ -1,0 +1,22 @@
+{
+  "id": "fc-cyl-basic",
+  "app": "freecad",
+  "tags": ["n3", "tools", "create", "confirm"],
+  "message": "Create a cylinder with radius 5mm and height 20mm",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_cylinder"],
+    "forbidden_tools": ["clean_mesh", "create_parametric_box"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_cylinder", "arg": "radius", "op": "eq", "value": 5 },
+      { "tool": "create_parametric_cylinder", "arg": "height", "op": "eq", "value": 20 }
+    ]
+  }
+}

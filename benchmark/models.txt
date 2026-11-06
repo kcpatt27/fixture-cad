@@ -1,0 +1,20 @@
+# Fixture bench model list — one ref per line.
+# Blank lines and lines starting with # are ignored.
+#
+# Run:  python -m fixture_bench run --models-file benchmark/models.txt
+#
+# Cloud (OpenRouter) — requires FIXTURE_OPENROUTER_API_KEY
+openrouter:deepseek/deepseek-v4.1-flash
+openrouter:openai/gpt-6.1-sol-pro
+openrouter:deepseek/deepseek-v4-flash-vision-exp
+openrouter:z-ai/glm-5.3
+openrouter:inclusionai/ling-3.1-flash
+openrouter:inception/mercury-2.5
+#
+# Local (Ollama)
+# Control: pinned Fixture default (100% on the 2026-07-19 post-harden suite)
+qwen2.5:14b-instruct-q4_K_M
+qwen3.8:latest
+gemma4:12b
+ornith-1.5:9b
+qwen3.5:4b

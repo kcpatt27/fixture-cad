@@ -1,0 +1,21 @@
+{
+  "id": "bl-clarify-cross-app-object",
+  "app": "blender",
+  "tags": ["n1", "intent", "clarify", "cross-app"],
+  "message": "Create a parametric interlocking hinge Body with Pad features for 3D printing",
+  "mode": "chat",
+  "context": {
+    "active_document": "Scene",
+    "workbench_or_mode": "OBJECT",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["ambiguous", "unsupported"],
+    "forbid_all_tools": true,
+    "required_tools": [],
+    "forbidden_tools": [],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fc-box-comma-eu",
+  "app": "freecad",
+  "tags": ["tools", "create", "confirm", "args", "hard2"],
+  "message": "Create a box 40,5 x 40,5 x 10 mm (European decimals)",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box"],
+    "forbidden_tools": ["clean_mesh", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 40.5 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 40.5 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 10 }
+    ]
+  }
+}

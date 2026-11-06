@@ -1,0 +1,16 @@
+{
+  "name": "boolean_cut",
+  "description": "Boolean difference: create a new Part::Cut solid as base_name minus tool_name. Base and tool objects remain in the document. Dimensions/names refer to existing document objects.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["base_name", "tool_name"],
+    "properties": {
+      "base_name": { "type": "string", "minLength": 1 },
+      "tool_name": { "type": "string", "minLength": 1 },
+      "name": { "type": "string", "minLength": 1 }
+    }
+  }
+}

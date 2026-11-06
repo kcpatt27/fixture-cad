@@ -1,0 +1,38 @@
+{
+  "id": "fc-ref-plus-partial-plan",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "slice-b", "partial", "history", "confirm"],
+  "message": "Build the blocky remote from this sketch, about 100mm wide; lid later",
+  "history": [
+    {
+      "role": "user",
+      "text": "I attached an SVG outline of a remote enclosure"
+    },
+    {
+      "role": "assistant",
+      "text": "I see SVG metadata attached. I can start a boxy shell once width and print intent are pinned. Lid stays deferred."
+    }
+  ],
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {
+      "reference_image": {
+        "file_name": "remote-outline.svg",
+        "media_type": "image/svg+xml",
+        "byte_size": 512
+      }
+    }
+  },
+  "expect": {
+    "intent_status": ["partial"],
+    "require_any_tool": true,
+    "required_tools": [],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": true,
+    "required_scope_substr": ["lid"],
+    "arg_checks": []
+  }
+}

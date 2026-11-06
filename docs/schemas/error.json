@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fixture.local/schemas/error.json",
+  "title": "FixtureErrorEnvelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["error"],
+  "properties": {
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "validation_error",
+            "ollama_unreachable",
+            "openrouter_unreachable",
+            "model_error",
+            "unsupported_action",
+            "repair_exhausted",
+            "tool_exec_failed",
+            "unknown"
+          ]
+        },
+        "message": { "type": "string" },
+        "detail": { "type": "string" }
+      }
+    }
+  }
+}

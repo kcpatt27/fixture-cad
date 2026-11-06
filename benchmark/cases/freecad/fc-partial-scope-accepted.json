@@ -1,0 +1,31 @@
+{
+  "id": "fc-partial-scope-accepted",
+  "app": "freecad",
+  "tags": ["n1", "intent", "history", "partial"],
+  "message": "yes, make the base plate",
+  "history": [
+    {
+      "role": "user",
+      "text": "make a hinge; start with anything you can"
+    },
+    {
+      "role": "assistant",
+      "text": "I can start with a 30x15x2 mm rectangular base plate. Interlocking barrels and pin remain unsupported. Should I create that plate?"
+    }
+  ],
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["supported", "partial"],
+    "require_any_tool": true,
+    "required_tools": [],
+    "forbidden_tools": ["clean_mesh", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": []
+  }
+}

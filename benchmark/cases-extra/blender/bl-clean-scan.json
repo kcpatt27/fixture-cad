@@ -1,0 +1,22 @@
+{
+  "id": "bl-clean-scan",
+  "app": "blender",
+  "tags": ["tools", "scan", "mesh", "confirm"],
+  "message": "Clean this 3D scan and save a watertight STL: C:/scans/bracket_raw.stl to C:/scans/bracket_clean.stl, target 50000 triangles",
+  "mode": "chat",
+  "context": {
+    "active_document": "untitled",
+    "workbench_or_mode": "OBJECT",
+    "selected_objects": [],
+    "extra": {
+      "input_path": "C:/scans/bracket_raw.stl",
+      "output_path": "C:/scans/bracket_clean.stl"
+    }
+  },
+  "expect": {
+    "required_tools": ["clean_scan"],
+    "forbidden_tools": ["create_parametric_box", "add_fillet", "pad_sketch"],
+    "require_need_confirm": true,
+    "arg_checks": []
+  }
+}

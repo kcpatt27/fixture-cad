@@ -1,0 +1,35 @@
+{
+  "id": "fc-attach-ref-no-mutate",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "slice-b", "attach", "intent"],
+  "message": "What can you do with this reference? I have not decided sizes yet.",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {
+      "reference_image": {
+        "file_name": "napkin.png",
+        "media_type": "image/png",
+        "byte_size": 2048,
+        "width_px": 640,
+        "height_px": 480
+      }
+    }
+  },
+  "expect": {
+    "intent_status": ["ambiguous"],
+    "forbid_all_tools": true,
+    "required_tools": [],
+    "forbidden_tools": [
+      "create_parametric_box",
+      "import_svg_sketch",
+      "export_stl",
+      "pad_sketch",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

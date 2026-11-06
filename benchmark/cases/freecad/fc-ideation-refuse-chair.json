@@ -1,0 +1,27 @@
+{
+  "id": "fc-ideation-refuse-chair",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "intent", "safety"],
+  "message": "Make me that generative bone chair",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["unsupported"],
+    "forbid_all_tools": true,
+    "required_tools": [],
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_parametric_cylinder",
+      "boolean_fuse",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": [],
+    "required_reply_substr": ["chair"]
+  }
+}

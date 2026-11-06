@@ -1,0 +1,35 @@
+{
+  "part_keyboard": {
+    "level": 3,
+    "scale": 300,
+    "features": [
+      { "kind": "base_box", "params": { "w": 300, "d": 120, "h": 12 } },
+      { "kind": "pocket_rect", "params": { "w": 260, "d": 80, "x": 0, "y": 0, "depth": 4 } },
+      { "kind": "hole_std", "params": { "r": 3, "x": -120, "y": 45 } },
+      { "kind": "hole_std", "params": { "r": 3, "x": 120, "y": 45 } },
+      { "kind": "fillet_top", "params": { "r": 1.5 } }
+    ]
+  },
+  "part_shelf": {
+    "level": 3,
+    "scale": 320,
+    "features": [
+      { "kind": "base_box", "params": { "w": 320, "d": 180, "h": 12 } },
+      { "kind": "pocket_rect", "params": { "w": 280, "d": 140, "x": 0, "y": 0, "depth": 4 } },
+      { "kind": "hole_std", "params": { "r": 8, "x": -120, "y": 0 } },
+      { "kind": "hole_std", "params": { "r": 8, "x": 120, "y": 0 } },
+      { "kind": "fillet_top", "params": { "r": 2 } }
+    ]
+  },
+  "part_laptop_mount": {
+    "level": 3,
+    "scale": 240,
+    "features": [
+      { "kind": "base_box", "params": { "w": 240, "d": 160, "h": 8 } },
+      { "kind": "boss_box", "params": { "w": 200, "d": 20, "x": 0, "y": -50, "h": 8 } },
+      { "kind": "hole_std", "params": { "r": 3, "x": -100, "y": 60 } },
+      { "kind": "hole_std", "params": { "r": 3, "x": 100, "y": 60 } },
+      { "kind": "fillet_top", "params": { "r": 1.5 } }
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fixture.local/schemas/chat-request.json",
+  "title": "FixtureChatRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["app", "version", "context", "message", "mode"],
+  "properties": {
+    "app": { "type": "string", "enum": ["freecad", "blender"] },
+    "version": { "type": "string", "minLength": 1 },
+    "context": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["selected_objects"],
+      "properties": {
+        "active_document": { "type": "string" },
+        "workbench_or_mode": { "type": "string" },
+        "selected_objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["name", "type"],
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "type": "string" },
+              "shape": { "type": "string" },
+              "properties": { "type": "object" }
+            }
+          }
+        },
+        "extra": {
+          "type": "object",
+          "properties": {
+            "reference_image": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["file_name", "media_type", "byte_size"],
+              "properties": {
+                "file_name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255,
+                  "pattern": "^[^/\\\\]+$",
+                  "description": "Basename only; absolute paths never cross the wire."
+                },
+                "media_type": {
+                  "type": "string",
+                  "enum": [
+                    "image/png",
+                    "image/jpeg",
+                    "image/webp",
+                    "image/bmp",
+                    "image/svg+xml"
+                  ]
+                },
+                "byte_size": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 8388608,
+                  "description": "Source file size in bytes; image bytes are never sent."
+                },
+                "width_px": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16384
+                },
+                "height_px": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16384
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "message": { "type": "string", "minLength": 1, "maxLength": 2000 },
+    "history": {
+      "type": "array",
+      "maxItems": 6,
+      "default": [],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "text"],
+        "properties": {
+          "role": { "type": "string", "enum": ["user", "assistant"] },
+          "text": { "type": "string", "minLength": 1, "maxLength": 600 }
+        }
+      }
+    },
+    "mode": { "type": "string", "enum": ["chat", "explain", "tool"] },
+    "model_lane": {
+      "type": "string",
+      "enum": ["accurate", "fast", "auto"],
+      "default": "accurate"
+    },
+    "request_id": { "type": "string" }
+  }
+}

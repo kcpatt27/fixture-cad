@@ -1,0 +1,26 @@
+{
+  "id": "fc-explain-selection",
+  "app": "freecad",
+  "tags": ["tools", "explain", "auto"],
+  "message": "Explain what this selected part is and what it does",
+  "mode": "explain",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [
+      {
+        "name": "Pad001",
+        "type": "PartDesign::Pad",
+        "shape": "Solid",
+        "properties": { "Length": 10 }
+      }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["explain_selection"],
+    "forbidden_tools": ["create_parametric_box", "clean_mesh", "add_fillet"],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

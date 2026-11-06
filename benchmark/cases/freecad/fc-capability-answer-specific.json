@@ -1,0 +1,30 @@
+{
+  "id": "fc-capability-answer-specific",
+  "app": "freecad",
+  "tags": ["n1", "intent", "faq"],
+  "message": "can you make hinge barrels and a pin?",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["unsupported", "ambiguous"],
+    "forbid_all_tools": true,
+    "required_tools": [],
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_body",
+      "new_sketch",
+      "sketch_rectangle",
+      "pad_sketch",
+      "pocket_sketch",
+      "add_fillet",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

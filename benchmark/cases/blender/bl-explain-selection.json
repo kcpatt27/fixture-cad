@@ -1,0 +1,26 @@
+{
+  "id": "bl-explain-selection",
+  "app": "blender",
+  "tags": ["tools", "explain", "auto"],
+  "message": "Explain what I have selected",
+  "mode": "explain",
+  "context": {
+    "active_document": "untitled",
+    "workbench_or_mode": "OBJECT",
+    "selected_objects": [
+      {
+        "name": "Suzanne",
+        "type": "MESH",
+        "shape": "Mesh",
+        "properties": { "vertices": 507, "polygons": 500 }
+      }
+    ],
+    "extra": { "active_object": "Suzanne" }
+  },
+  "expect": {
+    "required_tools": ["explain_selection"],
+    "forbidden_tools": ["clean_mesh", "create_parametric_box", "add_fillet"],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

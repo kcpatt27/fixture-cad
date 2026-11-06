@@ -1,0 +1,16 @@
+{
+  "name": "create_parametric_cylinder",
+  "description": "Create a cylinder solid in the active FreeCAD document. Dimensions are millimetres. radius is the base radius; height is along +Z before placement.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["radius", "height"],
+    "properties": {
+      "radius": { "type": "number", "exclusiveMinimum": 0 },
+      "height": { "type": "number", "exclusiveMinimum": 0 },
+      "name": { "type": "string", "minLength": 1 }
+    }
+  }
+}

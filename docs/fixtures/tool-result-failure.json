@@ -1,0 +1,18 @@
+{
+  "app": "freecad",
+  "version": "0.1.0",
+  "request_id": "fixture-001",
+  "tool_name": "create_parametric_box",
+  "success": false,
+  "model_lane": "accurate",
+  "error": {
+    "code": "tool_exec_failed",
+    "message": "No active document",
+    "detail": "RuntimeError: No active document"
+  },
+  "context": {
+    "active_document": null,
+    "selected_objects": []
+  },
+  "attempt": 1
+}

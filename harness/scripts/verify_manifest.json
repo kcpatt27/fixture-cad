@@ -1,0 +1,17 @@
+{
+  "freecad_smokes": [
+    "smoke_freecad.py",
+    "smoke_partdesign.py",
+    "smoke_n1_intent.py",
+    "smoke_n2_verify.py",
+    "smoke_n3_modeling.py",
+    "smoke_slice_b.py",
+    "smoke_chat_threading.py"
+  ],
+  "blender_smokes": [
+    "smoke_blender.py",
+    "smoke_n1_intent.py",
+    "smoke_n2_verify.py",
+    "smoke_clean_scan.py"
+  ]
+}

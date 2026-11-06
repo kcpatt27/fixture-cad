@@ -1,0 +1,18 @@
+{
+  "name": "create_body",
+  "description": "Create an empty native PartDesign Body in the active FreeCAD document. Use before new_sketch when building a PartDesign feature chain.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "default": "Body",
+        "description": "Body name used by later tool calls."
+      }
+    }
+  }
+}

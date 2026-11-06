@@ -1,0 +1,14 @@
+# Head-to-head model set — Fixture vs freecad-ai (2026-10-05)
+# 7 models chosen by the maintainer (call it the "5 + 2"). One ref per line.
+#
+# Cloud (OpenRouter) — requires FIXTURE_OPENROUTER_API_KEY
+openrouter:deepseek/deepseek-v4.1-flash
+openrouter:z-ai/glm-5.3-flash
+openrouter:inclusionai/ling-3.1-flash
+openrouter:openai/gpt-6.1-sol-pro
+#
+# Local (Ollama)
+# Control: pinned Fixture default (100% on the 2026-07-19 post-harden suite)
+qwen2.5:14b-instruct-q4_K_M
+qwen3.8:latest
+mannix/gemma4-98e-v7-coderx:Q4_K_L

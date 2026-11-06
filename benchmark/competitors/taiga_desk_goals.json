@@ -1,0 +1,35 @@
+{
+  "desk_laptop_cradle_plate": {
+    "level": 3,
+    "scale": 220,
+    "features": [
+      {"kind": "base_box", "params": {"w": 220, "d": 90, "h": 6}},
+      {"kind": "hole_std", "params": {"r": 2.1, "x": -95, "y": 30}},
+      {"kind": "hole_std", "params": {"r": 2.1, "x": 95, "y": 30}},
+      {"kind": "hole_std", "params": {"r": 2.1, "x": -95, "y": -30}},
+      {"kind": "hole_std", "params": {"r": 2.1, "x": 95, "y": -30}},
+      {"kind": "fillet_top", "params": {"r": 1.0}}
+    ]
+  },
+  "desk_shelf_plate": {
+    "level": 3,
+    "scale": 300,
+    "features": [
+      {"kind": "base_box", "params": {"w": 300, "d": 160, "h": 10}},
+      {"kind": "pocket_rect", "params": {"w": 260, "d": 120, "x": 0, "y": 0, "depth": 3}},
+      {"kind": "hole_std", "params": {"r": 15, "x": -60, "y": 0}},
+      {"kind": "hole_std", "params": {"r": 15, "x": 60, "y": 0}},
+      {"kind": "fillet_top", "params": {"r": 2.0}}
+    ]
+  },
+  "desk_cradle_side_plate": {
+    "level": 2,
+    "scale": 90,
+    "features": [
+      {"kind": "base_box", "params": {"w": 90, "d": 60, "h": 6}},
+      {"kind": "hole_std", "params": {"r": 2.1, "x": -30, "y": 0}},
+      {"kind": "hole_std", "params": {"r": 2.1, "x": 30, "y": 0}},
+      {"kind": "fillet_top", "params": {"r": 1.0}}
+    ]
+  }
+}

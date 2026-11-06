@@ -1,0 +1,12 @@
+{
+  "reply_text": "I can help, but I need one clarifying detail first.",
+  "actions": [],
+  "intent_status": "ambiguous",
+  "supported_scope": {
+    "summary": "Current tools support rectangular plates and pads, not a complete interlocking hinge.",
+    "clarifying_question": "Should I start with a rectangular base plate, or do you want exact hinge dimensions first?"
+  },
+  "model_lane": "accurate",
+  "model": "qwen2.5:14b-instruct-q4_K_M",
+  "request_id": "fixture-ambiguous-001"
+}

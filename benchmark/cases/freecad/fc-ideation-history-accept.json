@@ -1,0 +1,35 @@
+{
+  "id": "fc-ideation-history-accept",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "intent", "history", "partial", "confirm"],
+  "message": "yes, create that box shell",
+  "history": [
+    {
+      "role": "user",
+      "text": "Start a printable enclosure about 100x60x25 mm, lid later"
+    },
+    {
+      "role": "assistant",
+      "text": "I can start with a 100x60x25 mm box shell. Lid and internals remain unsupported. Create that shell?"
+    }
+  ],
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["supported", "partial"],
+    "require_any_tool": true,
+    "required_tools": ["create_parametric_box"],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 100 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 60 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 25 }
+    ]
+  }
+}

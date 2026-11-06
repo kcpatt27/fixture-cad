@@ -1,0 +1,23 @@
+{
+  "name": "export_stl",
+  "description": "Export selected FreeCAD solids to an STL file under a fixed fixture_exports/ directory. path is a filename only (e.g. remote.stl); separators are rejected. When object_names is omitted, all document solids are exported.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "object_names": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "minItems": 1,
+        "description": "Document object names to export. Omit to export all solids."
+      },
+      "path": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.-]+\\.stl$",
+        "description": "Filename only under fixture_exports/; no directories or separators."
+      }
+    }
+  }
+}

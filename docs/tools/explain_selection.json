@@ -1,0 +1,16 @@
+{
+  "name": "explain_selection",
+  "description": "Explain or summarize the current selection for the user. Prefer rich reply_text; args may include focus hints.",
+  "permission": "auto",
+  "apps": ["freecad", "blender"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "focus": {
+        "type": "string",
+        "description": "Optional aspect to emphasize (topology, dimensions, materials)."
+      }
+    }
+  }
+}

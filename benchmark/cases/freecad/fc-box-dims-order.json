@@ -1,0 +1,23 @@
+{
+  "id": "fc-box-dims-order",
+  "app": "freecad",
+  "tags": ["tools", "create", "confirm", "args", "harden"],
+  "message": "Make a box 25 x 80 x 12 mm (width x height x depth)",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box"],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 25 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 80 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 12 }
+    ]
+  }
+}

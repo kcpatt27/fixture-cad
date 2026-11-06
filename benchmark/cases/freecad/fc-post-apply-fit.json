@@ -1,0 +1,32 @@
+{
+  "id": "fc-post-apply-fit",
+  "app": "freecad",
+  "tags": ["n2", "view", "auto"],
+  "message": "zoom to selection / fit the view on what we made",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [
+      {
+        "name": "Pad",
+        "type": "PartDesign::Pad",
+        "shape": "Solid",
+        "properties": {"Length": 10}
+      }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["fit_view_selection"],
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_body",
+      "pad_sketch",
+      "clean_mesh",
+      "add_fillet"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

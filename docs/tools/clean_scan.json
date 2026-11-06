@@ -1,0 +1,54 @@
+{
+  "name": "clean_scan",
+  "description": "Import a scan mesh (STL/OBJ/PLY), merge duplicate vertices, optionally fill holes, recalc normals, optionally voxel-remesh, optionally decimate to a triangle budget, and export the result as STL. Reports triangles before/after and honest manifold status; this is mesh cleanup, not an editable B-Rep reconstruction.",
+  "permission": "confirm",
+  "apps": ["blender"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["input_path", "output_path"],
+    "properties": {
+      "input_path": {
+        "type": "string",
+        "description": "Absolute or relative path to the scan mesh (.stl, .obj, or .ply)."
+      },
+      "output_path": {
+        "type": "string",
+        "description": "Path for the cleaned STL export. A .stl suffix is recommended; one is appended when missing."
+      },
+      "target_triangles": {
+        "type": "integer",
+        "minimum": 1000,
+        "default": 50000,
+        "description": "Triangle budget for decimation. Ignored when decimate is false or the mesh is already smaller."
+      },
+      "voxel_size": {
+        "type": "number",
+        "minimum": 0,
+        "default": 0,
+        "description": "Voxel remesh size in Blender units. 0 disables voxel remeshing."
+      },
+      "merge_distance": {
+        "type": "number",
+        "minimum": 0,
+        "default": 0.0001,
+        "description": "Merge-by-distance threshold in Blender units."
+      },
+      "fill_holes": {
+        "type": "boolean",
+        "default": true,
+        "description": "Fill boundary loops left after import/merge."
+      },
+      "recalc_normals": {
+        "type": "boolean",
+        "default": true,
+        "description": "Recalculate face normals consistently outward."
+      },
+      "decimate": {
+        "type": "boolean",
+        "default": true,
+        "description": "Decimate to target_triangles when the mesh exceeds the budget."
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "pocket_sketch",
+  "description": "Create a native finite-length PartDesign Pocket from a named closed sketch on an existing solid.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["sketch_name", "length"],
+    "properties": {
+      "sketch_name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Existing Sketcher sketch name or label."
+      },
+      "length": { "type": "number", "exclusiveMinimum": 0 },
+      "reversed": { "type": "boolean", "default": false },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "default": "Pocket"
+      }
+    }
+  }
+}

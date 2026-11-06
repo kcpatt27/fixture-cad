@@ -1,0 +1,21 @@
+{
+  "id": "fc-ideation-brief-only",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "intent", "clarify"],
+  "message": "I want a small desk organizer for pens",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["ambiguous"],
+    "forbid_all_tools": true,
+    "required_tools": [],
+    "forbidden_tools": ["create_parametric_box", "create_parametric_cylinder", "clean_mesh"],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

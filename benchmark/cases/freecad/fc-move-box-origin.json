@@ -1,0 +1,26 @@
+{
+  "id": "fc-move-box-origin",
+  "app": "freecad",
+  "tags": ["n3", "tools", "create", "confirm", "multi"],
+  "message": "Create a 20x20x10mm box named Block, then move Block to x=50, y=0, z=0",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box", "transform_placement"],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 20 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 20 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 10 },
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "Block" },
+      { "tool": "transform_placement", "arg": "object_name", "op": "eq", "value": "Block" },
+      { "tool": "transform_placement", "arg": "x", "op": "eq", "value": 50 }
+    ]
+  }
+}

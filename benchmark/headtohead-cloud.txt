@@ -1,0 +1,7 @@
+# Head-to-head CLOUD subset (updated 2026-10-06)
+# Sol Pro replaced by DeepSeek V4 Pro (default fourth); Gemini kept as the
+# speed arm; Ling 3.1 removed (free-pool throttled, unbenchable).
+openrouter:deepseek/deepseek-v4.1-flash
+openrouter:deepseek/deepseek-v4-pro
+openrouter:z-ai/glm-5.3-flash
+openrouter:google/gemini-3.8-flash

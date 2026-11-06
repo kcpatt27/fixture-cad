@@ -1,0 +1,25 @@
+{
+  "id": "fc-fillet-wrong-object",
+  "app": "freecad",
+  "tags": ["tools", "edit", "confirm", "args", "hard2"],
+  "message": "Add a 1mm fillet to Lid only — leave Housing alone",
+  "mode": "chat",
+  "context": {
+    "active_document": "Assembly",
+    "workbench_or_mode": "Part",
+    "selected_objects": [
+      { "name": "Housing", "type": "Part::Feature", "shape": "Solid" },
+      { "name": "Lid", "type": "Part::Feature", "shape": "Solid" }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["add_fillet"],
+    "forbidden_tools": ["create_parametric_box", "clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "add_fillet", "arg": "radius", "op": "eq", "value": 1 },
+      { "tool": "add_fillet", "arg": "object_name", "op": "eq", "value": "Lid" }
+    ]
+  }
+}

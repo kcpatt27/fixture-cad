@@ -1,0 +1,25 @@
+{
+  "id": "fc-box-fillet-chain",
+  "app": "freecad",
+  "tags": ["tools", "create", "edit", "confirm", "multi", "args", "hard2"],
+  "message": "Create a 20x20x20mm box named Cube, then fillet it with radius 1mm",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box", "add_fillet"],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 20 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 20 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 20 },
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "Cube" },
+      { "tool": "add_fillet", "arg": "radius", "op": "eq", "value": 1 }
+    ]
+  }
+}

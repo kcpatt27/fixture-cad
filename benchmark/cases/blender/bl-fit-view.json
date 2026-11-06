@@ -1,0 +1,21 @@
+{
+  "id": "bl-fit-view",
+  "app": "blender",
+  "tags": ["tools", "view", "auto"],
+  "message": "Frame the selected object in the 3D view",
+  "mode": "chat",
+  "context": {
+    "active_document": "untitled",
+    "workbench_or_mode": "OBJECT",
+    "selected_objects": [
+      { "name": "Cube", "type": "MESH", "shape": "Mesh" }
+    ],
+    "extra": { "active_object": "Cube" }
+  },
+  "expect": {
+    "required_tools": ["fit_view_selection"],
+    "forbidden_tools": ["clean_mesh", "create_parametric_box"],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

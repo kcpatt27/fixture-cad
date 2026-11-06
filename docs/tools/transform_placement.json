@@ -1,0 +1,28 @@
+{
+  "name": "transform_placement",
+  "description": "Set absolute placement of a named FreeCAD object. x/y/z are millimetres; rx/ry/rz are Euler rotation in degrees (yaw=rz, pitch=ry, roll=rx). Omit an axis to leave the current value. At least one of x,y,z,rx,ry,rz is required.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["object_name"],
+    "properties": {
+      "object_name": { "type": "string", "minLength": 1 },
+      "x": { "type": "number" },
+      "y": { "type": "number" },
+      "z": { "type": "number" },
+      "rx": { "type": "number" },
+      "ry": { "type": "number" },
+      "rz": { "type": "number" }
+    },
+    "anyOf": [
+      { "required": ["x"] },
+      { "required": ["y"] },
+      { "required": ["z"] },
+      { "required": ["rx"] },
+      { "required": ["ry"] },
+      { "required": ["rz"] }
+    ]
+  }
+}

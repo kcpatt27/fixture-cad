@@ -1,0 +1,20 @@
+{
+  "app": "freecad",
+  "version": "0.1.0",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {
+      "reference_image": {
+        "file_name": "remote-outline.svg",
+        "media_type": "image/svg+xml",
+        "byte_size": 420,
+        "width_px": 200,
+        "height_px": 120
+      }
+    }
+  },
+  "message": "Trace this outline and pad it 8 mm",
+  "mode": "chat"
+}

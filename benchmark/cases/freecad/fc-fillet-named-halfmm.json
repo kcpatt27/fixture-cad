@@ -1,0 +1,25 @@
+{
+  "id": "fc-fillet-named-halfmm",
+  "app": "freecad",
+  "tags": ["tools", "edit", "confirm", "args", "hard"],
+  "message": "Fillet only the solid named Housing with a 0.5 mm radius — do not create a new box",
+  "mode": "chat",
+  "context": {
+    "active_document": "Assembly",
+    "workbench_or_mode": "Part",
+    "selected_objects": [
+      { "name": "Housing", "type": "Part::Feature", "shape": "Solid" },
+      { "name": "Lid", "type": "Part::Feature", "shape": "Solid" }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["add_fillet"],
+    "forbidden_tools": ["create_parametric_box", "clean_mesh", "fit_view_selection"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "add_fillet", "arg": "radius", "op": "eq", "value": 0.5 },
+      { "tool": "add_fillet", "arg": "object_name", "op": "eq", "value": "Housing" }
+    ]
+  }
+}

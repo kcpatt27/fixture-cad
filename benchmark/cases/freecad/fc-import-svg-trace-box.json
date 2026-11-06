@@ -1,0 +1,29 @@
+{
+  "id": "fc-import-svg-trace-box",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "slice-b", "import", "confirm"],
+  "message": "Trace this outline into a sketch and pad it 8 mm",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {
+      "reference_image": {
+        "file_name": "rect-outline.svg",
+        "media_type": "image/svg+xml",
+        "byte_size": 420
+      }
+    }
+  },
+  "expect": {
+    "intent_status": ["supported", "partial"],
+    "require_any_tool": true,
+    "required_tools": ["import_svg_sketch", "pad_sketch"],
+    "forbidden_tools": ["clean_mesh", "export_stl"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "pad_sketch", "arg": "length", "op": "eq", "value": 8 }
+    ]
+  }
+}

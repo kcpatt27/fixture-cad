@@ -1,0 +1,25 @@
+{
+  "id": "fc-bool-fuse-named",
+  "app": "freecad",
+  "tags": ["n3", "tools", "create", "confirm", "multi"],
+  "message": "Create a 30x20x10mm box named Plate and a cylinder named Boss with radius 5mm and height 12mm, then boolean fuse Plate with Boss and name the result PlateBoss",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box", "create_parametric_cylinder", "boolean_fuse"],
+    "forbidden_tools": ["clean_mesh", "boolean_cut"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "Plate" },
+      { "tool": "create_parametric_cylinder", "arg": "name", "op": "eq", "value": "Boss" },
+      { "tool": "boolean_fuse", "arg": "base_name", "op": "eq", "value": "Plate" },
+      { "tool": "boolean_fuse", "arg": "tool_name", "op": "eq", "value": "Boss" },
+      { "tool": "boolean_fuse", "arg": "name", "op": "eq", "value": "PlateBoss" }
+    ]
+  }
+}

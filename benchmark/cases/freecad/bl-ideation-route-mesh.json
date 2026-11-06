@@ -1,0 +1,26 @@
+{
+  "id": "bl-ideation-route-mesh",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "intent", "cross-app", "clarify"],
+  "message": "Make an organic blob sculpture in this document",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["ambiguous", "unsupported"],
+    "forbid_all_tools": true,
+    "required_tools": [],
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_parametric_cylinder",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": [],
+    "required_reply_substr": ["blender"]
+  }
+}

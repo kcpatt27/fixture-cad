@@ -1,0 +1,61 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install harness
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e harness/ pytest
+      - name: Run headless tests
+        env:
+          PYTHONPATH: harness/src:benchmark:clients/freecad_workbench:clients/blender_addon
+        run: python -m pytest harness/tests benchmark/tests clients/freecad_workbench/tests clients/blender_addon/tests -q
+      - name: Lint
+        run: |
+          python -m pip install ruff
+          ruff check harness/src clients/freecad_workbench/fixture clients/blender_addon/fixture_blender benchmark/fixture_bench harness/tests clients/freecad_workbench/tests clients/blender_addon/tests benchmark/tests
+      - name: Build and inspect sdist + wheel
+        run: |
+          python -m pip install build
+          python harness/scripts/sync_contracts.py
+          python -m build harness
+          python - <<'PY'
+          import glob
+          import tarfile
+          import zipfile
+
+          wheel = glob.glob("harness/dist/*.whl")[0]
+          sdist = glob.glob("harness/dist/*.tar.gz")[0]
+          with zipfile.ZipFile(wheel) as archive:
+              wheel_names = set(archive.namelist())
+          with tarfile.open(sdist) as archive:
+              sdist_names = set(archive.getnames())
+          required = {
+              "fixture_cad/data/tools/create_body.json",
+              "fixture_cad/data/schemas/chat-request.json",
+          }
+          missing_wheel = required - wheel_names
+          missing_sdist = {
+              name for name in required if not any(n.endswith(name) for n in sdist_names)
+          }
+          if missing_wheel or missing_sdist:
+              raise SystemExit(
+                  f"missing package data: wheel={sorted(missing_wheel)} "
+                  f"sdist={sorted(missing_sdist)}"
+              )
+          print(
+              f"wheel OK: {len([n for n in wheel_names if n.startswith('fixture_cad/data/tools/')])} tools, "
+              f"{len([n for n in wheel_names if n.startswith('fixture_cad/data/schemas/')])} schemas; "
+              f"sdist OK: {len(sdist_names)} entries"
+          )
+          PY

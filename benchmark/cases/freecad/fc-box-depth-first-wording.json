@@ -1,0 +1,24 @@
+{
+  "id": "fc-box-depth-first-wording",
+  "app": "freecad",
+  "tags": ["tools", "create", "confirm", "args", "hard"],
+  "message": "Make a part 30mm deep, 100mm wide and 12mm high called Rib",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box"],
+    "forbidden_tools": ["clean_mesh", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 100 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 12 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 30 },
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "Rib" }
+    ]
+  }
+}

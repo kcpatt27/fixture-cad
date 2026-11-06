@@ -1,0 +1,23 @@
+{
+  "id": "fc-create-box-basic",
+  "app": "freecad",
+  "tags": ["tools", "create", "confirm"],
+  "message": "Create a 40x40x10mm box",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box"],
+    "forbidden_tools": ["clean_mesh", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 40 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 40 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 10 }
+    ]
+  }
+}

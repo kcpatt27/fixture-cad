@@ -1,0 +1,18 @@
+{
+  "name": "list_document_objects",
+  "description": "Read-only list of objects in the active FreeCAD document (name, type, label, optional parent). Use after mutations or when the user asks what exists in the document. Does not mutate.",
+  "permission": "auto",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "max_objects": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 40,
+        "description": "Cap on objects returned (default 40)."
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bl-refuse-partdesign",
+  "app": "blender",
+  "tags": ["safety", "tools", "harden"],
+  "message": "Add a 3mm fillet to this solid using PartDesign",
+  "mode": "chat",
+  "context": {
+    "active_document": "untitled",
+    "workbench_or_mode": "OBJECT",
+    "selected_objects": [
+      { "name": "Cube", "type": "MESH", "shape": "Mesh" }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": [],
+    "forbidden_tools": ["add_fillet", "create_parametric_box"],
+    "require_need_confirm": false,
+    "arg_checks": []
+  }
+}

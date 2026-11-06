@@ -1,0 +1,26 @@
+{
+  "id": "bl-clean-mesh",
+  "app": "blender",
+  "tags": ["tools", "edit", "confirm"],
+  "message": "Clean up this mesh — merge close vertices and remove loose geometry",
+  "mode": "chat",
+  "context": {
+    "active_document": "untitled",
+    "workbench_or_mode": "OBJECT",
+    "selected_objects": [
+      {
+        "name": "Cube",
+        "type": "MESH",
+        "shape": "Mesh",
+        "properties": { "vertices": 8, "polygons": 6 }
+      }
+    ],
+    "extra": { "active_object": "Cube" }
+  },
+  "expect": {
+    "required_tools": ["clean_mesh"],
+    "forbidden_tools": ["create_parametric_box", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": []
+  }
+}

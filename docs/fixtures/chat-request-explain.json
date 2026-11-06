@@ -1,0 +1,20 @@
+{
+  "app": "freecad",
+  "version": "0.1.0",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [
+      {
+        "name": "Pad001",
+        "type": "PartDesign::Pad",
+        "shape": "Solid",
+        "properties": { "Length": 10 }
+      }
+    ],
+    "extra": {}
+  },
+  "message": "Explain what this selected part is",
+  "mode": "explain",
+  "model_lane": "auto"
+}

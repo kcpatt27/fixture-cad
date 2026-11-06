@@ -1,0 +1,23 @@
+{
+  "id": "fc-add-fillet",
+  "app": "freecad",
+  "tags": ["tools", "edit", "confirm"],
+  "message": "Add a 2mm fillet to the selected solid",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [
+      { "name": "Box", "type": "Part::Feature", "shape": "Solid" }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["add_fillet"],
+    "forbidden_tools": ["clean_mesh", "create_parametric_box"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "add_fillet", "arg": "radius", "op": "eq", "value": 2 }
+    ]
+  }
+}

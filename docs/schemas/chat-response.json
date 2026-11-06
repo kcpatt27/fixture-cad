@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fixture.local/schemas/chat-response.json",
+  "title": "FixtureChatResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reply_text",
+    "actions",
+    "intent_status",
+    "supported_scope",
+    "model_lane",
+    "model"
+  ],
+  "properties": {
+    "reply_text": { "type": "string" },
+    "actions": {
+      "type": "array",
+      "items": { "$ref": "action.json" }
+    },
+    "intent_status": {
+      "type": "string",
+      "enum": ["supported", "ambiguous", "partial", "unsupported"]
+    },
+    "supported_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary"],
+      "properties": {
+        "summary": { "type": "string", "maxLength": 500 },
+        "remainder": { "type": "string", "maxLength": 500 },
+        "clarifying_question": { "type": "string", "maxLength": 300 }
+      }
+    },
+    "model_lane": { "type": "string", "enum": ["accurate", "fast"] },
+    "model": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string" }
+  }
+}

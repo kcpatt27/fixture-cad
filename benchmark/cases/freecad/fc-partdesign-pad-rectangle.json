@@ -1,0 +1,37 @@
+{
+  "id": "fc-partdesign-pad-rectangle",
+  "app": "freecad",
+  "tags": ["tools", "create", "confirm", "multi", "partdesign-p1"],
+  "message": "Create a PartDesign Body named BracketBody. On its XY plane create a Sketch named Profile with a 40mm by 20mm rectangle starting at x=0, y=0, then Pad that sketch 10mm and name the feature BracketPad.",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": [
+      "create_body",
+      "new_sketch",
+      "sketch_rectangle",
+      "pad_sketch"
+    ],
+    "forbidden_tools": ["create_parametric_box", "clean_mesh"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_body", "arg": "name", "op": "eq", "value": "BracketBody" },
+      { "tool": "new_sketch", "arg": "body_name", "op": "eq", "value": "BracketBody" },
+      { "tool": "new_sketch", "arg": "plane", "op": "eq", "value": "XY" },
+      { "tool": "new_sketch", "arg": "name", "op": "eq", "value": "Profile" },
+      { "tool": "sketch_rectangle", "arg": "sketch_name", "op": "eq", "value": "Profile" },
+      { "tool": "sketch_rectangle", "arg": "width", "op": "eq", "value": 40 },
+      { "tool": "sketch_rectangle", "arg": "height", "op": "eq", "value": 20 },
+      { "tool": "sketch_rectangle", "arg": "x", "op": "eq", "value": 0 },
+      { "tool": "sketch_rectangle", "arg": "y", "op": "eq", "value": 0 },
+      { "tool": "pad_sketch", "arg": "sketch_name", "op": "eq", "value": "Profile" },
+      { "tool": "pad_sketch", "arg": "length", "op": "eq", "value": 10 },
+      { "tool": "pad_sketch", "arg": "name", "op": "eq", "value": "BracketPad" }
+    ]
+  }
+}

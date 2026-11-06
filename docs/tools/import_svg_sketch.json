@@ -1,0 +1,23 @@
+{
+  "name": "import_svg_sketch",
+  "description": "Create or reuse a PartDesign Body and Sketcher sketch from the client-attached SVG reference (context.extra.reference_image media_type image/svg+xml). Units are millimetres. No path argument: the client supplies the local SVG at Apply time. Fails closed when no SVG is attached or path/edge counts exceed caps.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "default": "ImportedSketch",
+        "description": "Name for the new Sketcher sketch."
+      },
+      "body_name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "PartDesign Body to reuse, or to create with this name when it does not exist (keeps a plan's identifiers intact). Omit to create a new Body named <name>_Body."
+      }
+    }
+  }
+}

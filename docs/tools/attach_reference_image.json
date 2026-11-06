@@ -1,0 +1,11 @@
+{
+  "name": "attach_reference_image",
+  "description": "Ask the FreeCAD client to let the user pick a local reference image or SVG. Does not mutate the document. The client attaches basename-only metadata to context.extra.reference_image on the next /chat; absolute paths and image bytes never leave the client.",
+  "permission": "auto",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

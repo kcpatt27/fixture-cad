@@ -1,0 +1,88 @@
+{
+  "params": {
+    "CRADLE_INNER_W": 360.0,
+    "CRADLE_LEN": 180.0,
+    "CRADLE_SLOT": 53.0,
+    "CRADLE_FLOOR_T": 5.0,
+    "CRADLE_ARM": 30.0,
+    "CRADLE_WALL_T": 4.0,
+    "CRADLE_FLANGE_W": 18.0,
+    "CRADLE_FLANGE_T": 6.0,
+    "CRADLE_LIP": 3.0,
+    "CRADLE_BACK_LEDGE": 30.0,
+    "CRADLE_BACK_T": 5.0,
+    "LAP": 15.0,
+    "SCREW_R": 2.1,
+    "RIB_T": 3.0
+  },
+  "pieces": {
+    "cradle_rail_left": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 89150.0,
+      "bbox": [
+        52.0,
+        180.0,
+        58.0
+      ],
+      "bbox_min": [
+        -202.0,
+        -90.0,
+        -58.0
+      ],
+      "step": "cradle_rail_left.step",
+      "stl": "cradle_rail_left.stl"
+    },
+    "cradle_rail_right": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 89150.0,
+      "bbox": [
+        52.0,
+        180.0,
+        58.0
+      ],
+      "bbox_min": [
+        150.0,
+        -90.0,
+        -58.0
+      ],
+      "step": "cradle_rail_right.step",
+      "stl": "cradle_rail_right.stl"
+    },
+    "cradle_back_left": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 104719.5,
+      "bbox": [
+        199.0,
+        53.0,
+        58.0
+      ],
+      "bbox_min": [
+        -184.0,
+        -113.0,
+        -58.0
+      ],
+      "step": "cradle_back_left.step",
+      "stl": "cradle_back_left.stl"
+    },
+    "cradle_back_right": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 96514.5,
+      "bbox": [
+        184.0,
+        53.0,
+        58.0
+      ],
+      "bbox_min": [
+        0.0,
+        -113.0,
+        -58.0
+      ],
+      "step": "cradle_back_right.step",
+      "stl": "cradle_back_right.stl"
+    }
+  }
+}

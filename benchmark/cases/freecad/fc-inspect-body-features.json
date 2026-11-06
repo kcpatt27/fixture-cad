@@ -1,0 +1,44 @@
+{
+  "id": "fc-inspect-body-features",
+  "app": "freecad",
+  "tags": ["n2", "inspect", "auto"],
+  "message": "get_object facts for Pad — what did we just make?",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [
+      {
+        "name": "BracketBody",
+        "type": "PartDesign::Body",
+        "shape": "Solid",
+        "properties": {}
+      },
+      {
+        "name": "Pad",
+        "type": "PartDesign::Pad",
+        "shape": "Solid",
+        "properties": {"Length": 10}
+      }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["get_object"],
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_body",
+      "new_sketch",
+      "sketch_rectangle",
+      "pad_sketch",
+      "pocket_sketch",
+      "add_fillet",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": [
+      {"tool": "get_object", "arg": "object_name", "op": "eq", "value": "Pad"}
+    ],
+    "intent_status": ["supported"]
+  }
+}

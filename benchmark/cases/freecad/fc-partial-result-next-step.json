@@ -1,0 +1,54 @@
+{
+  "id": "fc-partial-result-next-step",
+  "app": "freecad",
+  "tags": ["n2", "intent", "partial", "history"],
+  "message": "what's next after the base plate? Restate what remains unsupported from the original hinge request (barrels/pin), then offer at most one bounded next step we can actually do.",
+  "history": [
+    {
+      "role": "user",
+      "text": "make a hinge; start with anything you can"
+    },
+    {
+      "role": "assistant",
+      "text": "I can start with a 40x20x2 mm rectangular base plate. Interlocking barrels and pin remain unsupported. Should I create that plate?"
+    },
+    {
+      "role": "user",
+      "text": "yes, make the base plate"
+    },
+    {
+      "role": "assistant",
+      "text": "Applied successfully. Fit: view fitted. Tips: Pad. Facts:\nPad | PartDesign::Pad | Pad\n  volume=1600.000\n  Length=2.0"
+    }
+  ],
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [
+      {
+        "name": "Pad",
+        "type": "PartDesign::Pad",
+        "shape": "Solid",
+        "properties": {"Length": 2}
+      }
+    ],
+    "extra": {
+      "inspection": {
+        "tips": ["Pad"],
+        "detail": "Pad | PartDesign::Pad | Pad\n  Length=2.0"
+      },
+      "prior_supported_scope": {
+        "summary": "40x20x2 mm rectangular base plate",
+        "remainder": "Interlocking barrels and pin remain unsupported"
+      }
+    }
+  },
+  "expect": {
+    "intent_status": ["partial", "supported", "ambiguous", "unsupported"],
+    "forbidden_tools": ["clean_mesh"],
+    "require_need_confirm": false,
+    "arg_checks": [],
+    "required_reply_substr": ["barrel"]
+  }
+}

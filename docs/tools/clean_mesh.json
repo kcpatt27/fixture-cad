@@ -1,0 +1,18 @@
+{
+  "name": "clean_mesh",
+  "description": "Clean the active/selected mesh in Blender: merge vertices by distance and remove loose geometry.",
+  "permission": "confirm",
+  "apps": ["blender"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "merge_distance": {
+        "type": "number",
+        "minimum": 0,
+        "default": 0.0001,
+        "description": "Merge-by-distance threshold in Blender units."
+      }
+    }
+  }
+}

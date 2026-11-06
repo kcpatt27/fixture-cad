@@ -1,0 +1,42 @@
+{
+  "id": "bl-post-apply-summary",
+  "app": "blender",
+  "tags": ["n2", "verify", "summary"],
+  "message": "Using the inspection facts in context.extra.inspection, summarize what was actually changed, note any mismatch vs prior supported_scope remainder, and offer one bounded next step. Do not invent geometry that contradicts the facts.",
+  "mode": "explain",
+  "context": {
+    "active_document": "untitled",
+    "workbench_or_mode": "OBJECT",
+    "selected_objects": [
+      {
+        "name": "Cube",
+        "type": "MESH",
+        "shape": "Mesh",
+        "properties": {"vertices": 3, "polygons": 1}
+      }
+    ],
+    "extra": {
+      "inspection": {
+        "tips": ["Cube"],
+        "clean_mesh": {"name": "Cube", "merged": 1, "merge_distance": 0.0001},
+        "detail": "Cube: type=MESH\n  verts=3 polys=1",
+        "selected": [
+          {"name": "Cube", "type": "MESH", "vertices": 3, "polygons": 1}
+        ]
+      }
+    }
+  },
+  "expect": {
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_body",
+      "pad_sketch",
+      "add_fillet",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": [],
+    "required_reply_substr": ["vert"],
+    "intent_status": ["supported", "partial", "ambiguous"]
+  }
+}

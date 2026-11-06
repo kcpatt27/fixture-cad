@@ -1,0 +1,28 @@
+{
+  "id": "bl-explain-then-clean",
+  "app": "blender",
+  "tags": ["tools", "explain", "edit", "confirm", "multi", "args", "hard2"],
+  "message": "Explain the selection, then clean the mesh merging vertices within 0.002",
+  "mode": "chat",
+  "context": {
+    "active_document": "prop.blend",
+    "workbench_or_mode": "EDIT_MESH",
+    "selected_objects": [
+      {
+        "name": "Prop",
+        "type": "MESH",
+        "shape": "Mesh",
+        "properties": { "vertices": 4200, "polygons": 3800 }
+      }
+    ],
+    "extra": { "active_object": "Prop" }
+  },
+  "expect": {
+    "required_tools": ["explain_selection", "clean_mesh"],
+    "forbidden_tools": ["create_parametric_box", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "clean_mesh", "arg": "merge_distance", "op": "eq", "value": 0.002 }
+    ]
+  }
+}

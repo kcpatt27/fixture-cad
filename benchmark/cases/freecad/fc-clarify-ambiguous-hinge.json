@@ -1,0 +1,31 @@
+{
+  "id": "fc-clarify-ambiguous-hinge",
+  "app": "freecad",
+  "tags": ["n1", "intent", "clarify"],
+  "message": "make an interlocking hinge in plastic",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["ambiguous", "unsupported"],
+    "forbid_all_tools": true,
+    "required_tools": [],
+    "forbidden_tools": [
+      "create_parametric_box",
+      "create_body",
+      "new_sketch",
+      "sketch_rectangle",
+      "pad_sketch",
+      "pocket_sketch",
+      "add_fillet",
+      "clean_mesh"
+    ],
+    "require_need_confirm": false,
+    "arg_checks": [],
+    "required_scope_substr": []
+  }
+}

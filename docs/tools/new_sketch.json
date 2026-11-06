@@ -1,0 +1,29 @@
+{
+  "name": "new_sketch",
+  "description": "Create an empty native Sketcher sketch inside a named PartDesign Body and attach it to that Body's XY, XZ, or YZ origin plane.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["body_name", "plane"],
+    "properties": {
+      "body_name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Existing PartDesign Body name or label."
+      },
+      "plane": {
+        "type": "string",
+        "enum": ["XY", "XZ", "YZ"],
+        "description": "Body-local origin plane."
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "default": "Sketch",
+        "description": "Sketch name used by later tool calls."
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fc-box-then-fit",
+  "app": "freecad",
+  "tags": ["tools", "create", "view", "confirm", "multi", "hard"],
+  "message": "Create a 15x40x8mm box named Latch, then fit the view to the selection",
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "expect": {
+    "required_tools": ["create_parametric_box", "fit_view_selection"],
+    "forbidden_tools": ["clean_mesh", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "create_parametric_box", "arg": "width", "op": "eq", "value": 15 },
+      { "tool": "create_parametric_box", "arg": "height", "op": "eq", "value": 40 },
+      { "tool": "create_parametric_box", "arg": "depth", "op": "eq", "value": 8 },
+      { "tool": "create_parametric_box", "arg": "name", "op": "eq", "value": "Latch" }
+    ]
+  }
+}

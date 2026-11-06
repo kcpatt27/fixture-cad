@@ -1,0 +1,12 @@
+{
+  "app": "freecad",
+  "version": "0.1.0",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "PartDesign",
+    "selected_objects": [],
+    "extra": {}
+  },
+  "message": "Create a 40x40x10mm box",
+  "mode": "chat"
+}

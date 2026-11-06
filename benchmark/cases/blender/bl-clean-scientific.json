@@ -1,0 +1,28 @@
+{
+  "id": "bl-clean-scientific",
+  "app": "blender",
+  "tags": ["tools", "edit", "confirm", "args", "hard2"],
+  "message": "Merge vertices closer than 1e-4 on the selected mesh",
+  "mode": "chat",
+  "context": {
+    "active_document": "scene.blend",
+    "workbench_or_mode": "EDIT_MESH",
+    "selected_objects": [
+      {
+        "name": "Scan",
+        "type": "MESH",
+        "shape": "Mesh",
+        "properties": { "vertices": 9000, "polygons": 7000 }
+      }
+    ],
+    "extra": { "active_object": "Scan" }
+  },
+  "expect": {
+    "required_tools": ["clean_mesh"],
+    "forbidden_tools": ["create_parametric_box", "add_fillet"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "clean_mesh", "arg": "merge_distance", "op": "eq", "value": 0.0001 }
+    ]
+  }
+}

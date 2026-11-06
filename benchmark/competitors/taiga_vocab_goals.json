@@ -1,0 +1,73 @@
+{
+  "vocab_shelf_tub": {
+    "level": 3,
+    "scale": 360,
+    "features": [
+      {"kind": "base_box", "params": {"w": 360, "d": 180, "h": 80}},
+      {"kind": "shell", "params": {"t": 6}}
+    ]
+  },
+  "vocab_shelf_tub_rounded": {
+    "level": 4,
+    "scale": 360,
+    "features": [
+      {"kind": "base_box", "params": {"w": 360, "d": 180, "h": 80}},
+      {"kind": "shell", "params": {"t": 8}},
+      {"kind": "fillet_vertical", "params": {"r": 12}}
+    ]
+  },
+  "vocab_shelf_floor_perforated": {
+    "level": 4,
+    "scale": 360,
+    "features": [
+      {"kind": "base_box", "params": {"w": 360, "d": 180, "h": 6}},
+      {"kind": "hole_std", "params": {"r": 6, "x": -120, "y": 0}},
+      {"kind": "hole_std", "params": {"r": 6, "x": 0, "y": 0}},
+      {"kind": "hole_std", "params": {"r": 6, "x": 120, "y": 0}},
+      {"kind": "fillet_top", "params": {"r": 2}}
+    ]
+  },
+  "vocab_wall_on_floor": {
+    "level": 3,
+    "scale": 360,
+    "features": [
+      {"kind": "base_box", "params": {"w": 360, "d": 180, "h": 6}},
+      {"kind": "boss_box", "params": {"w": 360, "d": 5, "x": 0, "y": -85, "h": 70}}
+    ]
+  },
+  "vocab_three_walls": {
+    "level": 4,
+    "scale": 360,
+    "features": [
+      {"kind": "base_box", "params": {"w": 360, "d": 180, "h": 6}},
+      {"kind": "boss_box", "params": {"w": 360, "d": 5, "x": 0, "y": -85, "h": 70}},
+      {"kind": "boss_box", "params": {"w": 5, "d": 180, "x": -177.5, "y": 0, "h": 70}},
+      {"kind": "boss_box", "params": {"w": 5, "d": 180, "x": 177.5, "y": 0, "h": 70}}
+    ]
+  },
+  "vocab_cradle_back_plate": {
+    "level": 3,
+    "scale": 368,
+    "features": [
+      {"kind": "base_box", "params": {"w": 368, "d": 5, "h": 29}},
+      {"kind": "fillet_top", "params": {"r": 1.5}}
+    ]
+  },
+  "vocab_rail_T": {
+    "level": 4,
+    "scale": 180,
+    "features": [
+      {"kind": "base_box", "params": {"w": 180, "d": 36, "h": 5}},
+      {"kind": "boss_box", "params": {"w": 180, "d": 4, "x": 0, "y": 16, "h": 24}},
+      {"kind": "fillet_top", "params": {"r": 1}}
+    ]
+  },
+  "vocab_trackball_ring": {
+    "level": 3,
+    "scale": 120,
+    "features": [
+      {"kind": "base_box", "params": {"w": 120, "d": 120, "h": 36}},
+      {"kind": "hole_std", "params": {"r": 17, "x": 0, "y": 0}}
+    ]
+  }
+}

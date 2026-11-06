@@ -1,0 +1,16 @@
+{
+  "name": "boolean_fuse",
+  "description": "Boolean union: create a new Part::Fuse solid from base_name and tool_name. Base and tool objects remain in the document.",
+  "permission": "confirm",
+  "apps": ["freecad"],
+  "args_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["base_name", "tool_name"],
+    "properties": {
+      "base_name": { "type": "string", "minLength": 1 },
+      "tool_name": { "type": "string", "minLength": 1 },
+      "name": { "type": "string", "minLength": 1 }
+    }
+  }
+}

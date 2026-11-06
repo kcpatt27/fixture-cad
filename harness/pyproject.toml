@@ -1,0 +1,33 @@
+[project]
+name = "fixture-cad"
+version = "0.2.0"
+description = "Local AI harness for FreeCAD and Blender (Ollama + FastAPI)"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "Kalen Patterson" }]
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "httpx>=0.27.0",
+  "jsonschema>=4.23.0",
+  "referencing>=0.35.0",
+]
+
+[project.scripts]
+fixture = "fixture_cad.main:run"
+
+[project.urls]
+Homepage = "https://github.com/kcpatt27/fixture-cad"
+Repository = "https://github.com/kcpatt27/fixture-cad"
+Issues = "https://github.com/kcpatt27/fixture-cad/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fixture_cad"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

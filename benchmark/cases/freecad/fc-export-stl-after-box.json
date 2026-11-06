@@ -1,0 +1,40 @@
+{
+  "id": "fc-export-stl-after-box",
+  "app": "freecad",
+  "tags": ["ideation", "n4", "slice-b", "export", "confirm"],
+  "message": "Export it as remote.stl",
+  "history": [
+    {
+      "role": "user",
+      "text": "Create a 100x60x25 mm box named RemoteShell"
+    },
+    {
+      "role": "assistant",
+      "text": "Created a 100x60x25 mm box named RemoteShell. Apply completed."
+    }
+  ],
+  "mode": "chat",
+  "context": {
+    "active_document": "Unnamed",
+    "workbench_or_mode": "Part",
+    "selected_objects": [
+      {
+        "name": "RemoteShell",
+        "type": "Part::Feature",
+        "shape": "Solid",
+        "properties": {"Length": 100, "Width": 60, "Height": 25}
+      }
+    ],
+    "extra": {}
+  },
+  "expect": {
+    "intent_status": ["supported", "partial"],
+    "require_any_tool": true,
+    "required_tools": ["export_stl"],
+    "forbidden_tools": ["clean_mesh", "import_svg_sketch"],
+    "require_need_confirm": true,
+    "arg_checks": [
+      { "tool": "export_stl", "arg": "path", "op": "eq", "value": "remote.stl" }
+    ]
+  }
+}
