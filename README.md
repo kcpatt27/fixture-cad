@@ -13,11 +13,12 @@ harness, with **KiCad** designed as the next consumer. The model proposes
 defaults to **Ollama on localhost**, with an opt-in **OpenRouter** cloud lane for
 quality comparisons.
 
-![Fixture product reel](docs/reel/fixture-reel.gif)
+![Fixture product reel](docs/reel/fixture-reel.webp)
 
 *Silent product reel: plan → apply → STEP/STL. Asset notes in
 [`docs/reel/README.md`](docs/reel/README.md); live walkthrough shot list in
-[`docs/demos.md`](docs/demos.md).*
+[`docs/demos.md`](docs/demos.md). GIF copy for social posts:
+[`docs/reel/fixture-reel.gif`](docs/reel/fixture-reel.gif).*
 
 > **The model never runs arbitrary code.** Every mutation is a registered tool
 > with a JSON schema, a permission tier, and an undo transaction (ADR-001).

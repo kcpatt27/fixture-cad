@@ -434,6 +434,8 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     cards = build_cards()
     frames = [card.resize((850, 478), Image.LANCZOS) for card in cards]
+
+    # GIF for social posts (X, Bluesky, Mastodon, Discord).
     gif = out_dir / "fixture-reel.gif"
     frames[0].save(
         gif,
@@ -445,6 +447,21 @@ def main() -> int:
         optimize=True,
     )
     print(f"wrote {gif} ({gif.stat().st_size / 1024:.0f} KB)")
+
+    # Animated WebP for the README. GitHub wraps .gif in <animated-image>, which
+    # shows a play button instead of autoplaying when the viewer prefers reduced
+    # motion; .webp stays a plain <img> and animates in the browser.
+    webp = out_dir / "fixture-reel.webp"
+    frames[0].save(
+        webp,
+        save_all=True,
+        append_images=frames[1:],
+        duration=2500,
+        loop=0,
+        quality=90,
+        method=6,
+    )
+    print(f"wrote {webp} ({webp.stat().st_size / 1024:.0f} KB)")
     return 0
 
 

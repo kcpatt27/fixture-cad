@@ -1,9 +1,14 @@
 # Product reel
 
-![Fixture product reel](fixture-reel.gif)
+![Fixture product reel](fixture-reel.webp)
 
 *Eight cards, roughly 20 seconds, looping. Built from scripted-CAD renders and
 measured numbers — no mock UI, no composited screenshots.*
+
+The README embeds the **animated WebP**. GitHub wraps `.gif` files in its
+`<animated-image>` player, which shows a play button instead of autoplaying when
+the viewer's system prefers reduced motion; a `.webp` stays a plain image and
+animates. The GIF is kept for social posts.
 
 Fixture is a local-first harness that lets an LLM drive **FreeCAD** and
 **Blender** through named tools instead of generated code. The reel walks the
@@ -68,7 +73,7 @@ image.
 ## Regenerate
 
 ```powershell
-# Reel (GIF)
+# Reel (writes fixture-reel.gif + fixture-reel.webp)
 python docs/reel/make_reel.py
 
 # Social card (PNG)
@@ -81,22 +86,23 @@ and therefore exact bytes — vary between machines; regenerate on the platform 
 are publishing from when byte stability matters.
 
 Output is checked in, so a fresh clone shows the reel without running anything.
-Do not hand-edit `fixture-reel.gif` or `social-preview.png`; the next generator
-run overwrites both. Background is `#0d1117`.
+Do not hand-edit `fixture-reel.gif`, `fixture-reel.webp`, or
+`social-preview.png`; the next generator run overwrites them. Background is
+`#0d1117`.
 
 ### Checks after regenerating
 
 ```powershell
-python -c "from PIL import Image; print(Image.open('docs/reel/fixture-reel.gif').size)"
+python -c "from PIL import Image; print(Image.open('docs/reel/fixture-reel.webp').size)"
 # (850, 478)
 
 python -c "from PIL import Image; print(Image.open('docs/social-preview.png').size)"
 # (1280, 640)
 ```
 
-Then confirm the GIF still animates (8 frames, 2.5 s each, infinite loop) and
-that the card is legible at thumbnail size: headline, both proof numbers, and the
-repository URL.
+Then confirm the animation is intact — 8 frames, 2.5 s each, infinite loop — in
+both `fixture-reel.webp` and `fixture-reel.gif`, and that the card is legible at
+thumbnail size: headline, both proof numbers, and the repository URL.
 
 ### Editing the cards
 
